@@ -20,9 +20,37 @@ namespace WpfToDoList
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<ToDoListItem> mainList = new List<ToDoListItem>();
+        int selectedItem = -1;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            taskList.ItemsSource = mainList;
         }
+
+        private void addTask_Click(object sender, RoutedEventArgs e)
+        {
+            mainList.Add(new ToDoListItem(taskField.Text));
+            
+        }
+
+        private void removeTask_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    public class ToDoListItem
+    {
+        public string text;
+    
+        public ToDoListItem(string itemText)
+        {
+            this.text = itemText;
+        }
+
+
     }
 }
