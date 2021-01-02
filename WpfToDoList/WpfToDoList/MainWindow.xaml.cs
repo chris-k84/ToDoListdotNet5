@@ -23,8 +23,6 @@ namespace WpfToDoList
     {
         ObservableCollection<ToDoListItem> mainList; 
 
-        int selectedItem = -1;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -34,23 +32,25 @@ namespace WpfToDoList
 
         private void addTask_Click(object sender, RoutedEventArgs e)
         {
-            mainList.Add(new ToDoListItem(taskField.Text));
-
+            mainList.Add(new ToDoListItem(taskNameField.Text,taskDescriptionField.Text));
         }
 
         private void removeTask_Click(object sender, RoutedEventArgs e)
         {
-
+            mainList.RemoveAt(taskList.SelectedIndex);
         }
     }
 
     public class ToDoListItem
     {
-        public string text { get; set; }
+        public string Name { get; set; }
 
-        public ToDoListItem(string itemText)
+        public string Description { get; set; }
+
+        public ToDoListItem(string taskName, string taskDescription)
         {
-            this.text = itemText;
+            this.Name = taskName;
+            this.Description = taskDescription;
         }
 
 
