@@ -31,9 +31,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Orientation="Vertical">
-                        <TextBlock Text="Name: "/>
+                        <TextBlock Text="Name: " FontWeight="Bold"/>
                         <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="Description: "/>
+                        <TextBlock Text="Description: " FontWeight="Bold"/>
                         <TextBlock Text="{Binding Description}"/>
                     </WrapPanel>
                 </DataTemplate>
@@ -53,4 +53,4 @@
         <TextBox x:Name="taskDescriptionField" Grid.Column="4" Grid.Row="1" 
                  VerticalAlignment="Bottom" Height="100"/>
     </Grid>
-</Window>
+</Window>   
