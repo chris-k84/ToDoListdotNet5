@@ -52,5 +52,9 @@
                    VerticalAlignment="Center"/>
         <TextBox x:Name="taskDescriptionField" Grid.Column="4" Grid.Row="1" 
                  VerticalAlignment="Bottom" Height="100"/>
+        <Button x:Name="save" Content="save" Grid.Column="3" Grid.Row="3"
+                Click="save_Click"/>
+        <Button x:Name="load" Content="load" Grid.Column="4" Grid.Row="3"
+                Click="load_Click"/>
     </Grid>
 </Window>   

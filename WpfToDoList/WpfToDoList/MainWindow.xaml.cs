@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using System.Text.Json;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace WpfToDoList
 {
@@ -21,23 +13,42 @@ namespace WpfToDoList
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<ToDoListItem> mainList; 
+        ObservableCollection<ToDoListItem> mainList;
+        string dataFilePath;
 
         public MainWindow()
         {
             InitializeComponent();
             mainList = new ObservableCollection<ToDoListItem>();
             taskList.ItemsSource = mainList;
+            string[] paths = new string[] { Environment.CurrentDirectory, "Test" };
+            dataFilePath = Path.Combine(paths);
         }
 
         private void addTask_Click(object sender, RoutedEventArgs e)
         {
-            mainList.Add(new ToDoListItem(taskNameField.Text,taskDescriptionField.Text));
+            ToDoListItem toDoListItem = new ToDoListItem();
+            toDoListItem.Name = taskNameField.Text;
+            toDoListItem.Description = taskDescriptionField.Text;
+            mainList.Add(toDoListItem);
         }
 
         private void removeTask_Click(object sender, RoutedEventArgs e)
         {
             mainList.RemoveAt(taskList.SelectedIndex);
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            string jsonString = JsonSerializer.Serialize(mainList);
+            File.WriteAllText(dataFilePath, jsonString);
+        }
+
+        private void load_Click(object sender, RoutedEventArgs e)
+        {
+            string jsonString = File.ReadAllText(dataFilePath);
+            mainList = JsonSerializer.Deserialize<ObservableCollection<ToDoListItem>>(jsonString);
+            MessageBox.Show(mainList.Count.ToString());
         }
     }
 
@@ -47,11 +58,11 @@ namespace WpfToDoList
 
         public string Description { get; set; }
 
-        public ToDoListItem(string taskName, string taskDescription)
-        {
-            this.Name = taskName;
-            this.Description = taskDescription;
-        }
+        //public ToDoListItem(string taskName, string taskDescription)
+        //{
+        //    this.Name = taskName;
+        //    this.Description = taskDescription;
+        //}
 
 
     }
