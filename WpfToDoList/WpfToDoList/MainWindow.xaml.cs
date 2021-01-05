@@ -47,7 +47,11 @@ namespace WpfToDoList
         private void load_Click(object sender, RoutedEventArgs e)
         {
             string jsonString = File.ReadAllText(dataFilePath);
-            mainList = JsonSerializer.Deserialize<ObservableCollection<ToDoListItem>>(jsonString);
+            ObservableCollection<ToDoListItem> loaded = JsonSerializer.Deserialize<ObservableCollection<ToDoListItem>>(jsonString);
+            foreach (ToDoListItem x in loaded)
+            {
+                mainList.Add(x);
+            }
             MessageBox.Show(mainList.Count.ToString());
         }
     }
