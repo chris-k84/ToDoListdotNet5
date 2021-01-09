@@ -41,20 +41,18 @@
         </ListView>
 
         <Button x:Name="addTask" Content="Add" Grid.Column="1" Grid.Row="4"
-                Click="addTask_Click" Margin="10,10,10,10"/>
+                Margin="10,10,10,10" Command="{Binding AddTask}"/>
         <Button x:Name="removeTask" Content="Remove" Grid.Column="2" Grid.Row="4"
-                Click="removeTask_Click" Margin="10,10,10,10"/>
+                Margin="10,10,10,10" Command="{Binding RemoveTask}"/>
 
         <TextBlock Text="Task Name" Grid.Column="3" Grid.Row="1" Margin="10,0,10,0 "/>
         <TextBox x:Name="taskNameField" Grid.Column="4" Grid.Row="1" Width="100"
-                 VerticalAlignment="Top"/>
+                 VerticalAlignment="Top" Text="{Binding NewTask.Name, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Task Description" Grid.Column="3" Grid.Row="1" Margin="10,0,10,0"
                    VerticalAlignment="Center"/>
         <TextBox x:Name="taskDescriptionField" Grid.Column="4" Grid.Row="1" 
                  VerticalAlignment="Bottom" Height="100"/>
-        <Button x:Name="save" Content="save" Grid.Column="3" Grid.Row="3"
-                Click="save_Click"/>
-        <Button x:Name="load" Content="load" Grid.Column="4" Grid.Row="3"
-                Click="load_Click"/>
+        <Button x:Name="save" Content="save" Grid.Column="3" Grid.Row="3"/>
+        <Button x:Name="load" Content="load" Grid.Column="4" Grid.Row="3"/>
     </Grid>
 </Window>   

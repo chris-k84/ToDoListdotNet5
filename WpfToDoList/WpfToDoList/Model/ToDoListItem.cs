@@ -6,6 +6,7 @@ namespace WpfToDoList
     {
         private string _name;
         private string _description;
+
         public string Name
         {
             get
@@ -41,13 +42,5 @@ namespace WpfToDoList
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-
-        //public ToDoListItem(string taskName, string taskDescription)
-        //{
-        //    this.Name = taskName;
-        //    this.Description = taskDescription;
-        //}
-
-
     }
 }
