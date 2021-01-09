@@ -19,8 +19,8 @@ namespace WpfToDoList
             InitializeComponent();
              _mainView = new MainView();
             DataContext = _mainView;
-            //mainList = new ObservableCollection<ToDoListItem>();
-            //taskList.ItemsSource = mainList;
+            toDoList.ItemsSource = _mainView.TaskList;
+
             //string[] paths = new string[] { Environment.CurrentDirectory, "Test" };
             //dataFilePath = Path.Combine(paths);
         }

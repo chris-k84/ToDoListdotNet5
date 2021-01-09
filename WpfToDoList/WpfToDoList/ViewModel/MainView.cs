@@ -59,7 +59,10 @@ namespace WpfToDoList
 
         private void RemoveTaskMethod(Object parameter)
         {
-            MessageBox.Show("remove");
+            if (parameter != null)
+            {
+                TaskList.RemoveAt(Int16.Parse(parameter.ToString()));
+            }
         }
 
         private bool canRemoveTask(Object parameter)
@@ -77,19 +80,6 @@ namespace WpfToDoList
             }
         }
     }
-
-    //private void addTask_Click(object sender, RoutedEventArgs e)
-    //{
-    //    ToDoListItem toDoListItem = new ToDoListItem();
-    //    toDoListItem.Name = taskNameField.Text;
-    //    toDoListItem.Description = taskDescriptionField.Text;
-    //    mainList.Add(toDoListItem);
-    //}
-
-    //private void removeTask_Click(object sender, RoutedEventArgs e)
-    //{
-    //    mainList.RemoveAt(taskList.SelectedIndex);
-    //}
 
     //private void save_Click(object sender, RoutedEventArgs e)
     //{
