@@ -5,6 +5,7 @@ using System.Windows;
 using System.Text.Json;
 using System.Windows.Data;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace WpfToDoList
 {
@@ -56,18 +57,29 @@ namespace WpfToDoList
         }
     }
 
-    public class ToDoListItem
+    public class MainView : INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Description { get; set; }
+        ToDoListItem toDoListItem = new ToDoListItem();
 
-        //public ToDoListItem(string taskName, string taskDescription)
-        //{
-        //    this.Name = taskName;
-        //    this.Description = taskDescription;
-        //}
+        private ObservableCollection<ToDoListItem> toDoListItems = new ObservableCollection<ToDoListItem>();
 
+        public ICommand AddTask { get; set; }
 
+        public MainView()
+        {
+            AddTask = new Command(AddTaskMethod, canAddTask);
+        }
+
+        private void AddTaskMethod(Object paramter)
+        {
+            
+           
+        }
+        private bool canAddTask(Object paramter)
+        {
+            return true;
+        }
     }
 }
