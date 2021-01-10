@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System;
 using System.Windows;
 using System.Text.Json;
 using System.Windows.Data;
@@ -20,11 +20,11 @@ namespace WpfToDoList
              _mainView = new MainView();
             DataContext = _mainView;
             toDoList.ItemsSource = _mainView.TaskList;
+            addTask.Command = _mainView.AddTask;
 
-            //string[] paths = new string[] { Environment.CurrentDirectory, "Test" };
-            //dataFilePath = Path.Combine(paths);
+
+            this.Loaded += _mainView.OnViewStart;
+            this.Closed += _mainView.OnViewClose;  
         }
-
-       
     }
 }

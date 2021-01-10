@@ -40,7 +40,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="addTask" Content="Add" Grid.Column="1" Grid.Row="4"
-                Margin="10,10,10,10" Command="{Binding AddTask}"/>
+                Margin="10,10,10,10" /> <!--Command="{Binding AddTask}"-->
         <Button x:Name="removeTask" Content="Remove" Grid.Column="2" Grid.Row="4"
                 Margin="10,10,10,10" Command="{Binding RemoveTask}"
                 CommandParameter="{Binding ElementName=toDoList, Path=SelectedIndex}"/>
