@@ -43,6 +43,7 @@ namespace WpfToDoList
         }
 
         public ICommand AddTask { get; set; }
+
         public ICommand RemoveTask { get; set; }
 
         public MainView()
@@ -51,6 +52,7 @@ namespace WpfToDoList
             RemoveTask = new Command(RemoveTaskMethod, canRemoveTask);
             string[] paths = new string[] { Environment.CurrentDirectory, "TaskListData" };
             dataFilePath = Path.Combine(paths);
+            PropertyChanged += TestEvent;
         }
 
         public void OnViewStart(Object source, EventArgs e)
@@ -103,6 +105,11 @@ namespace WpfToDoList
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
+        }
+
+        private void TestEvent(Object source, EventArgs e)
+        {
+            MessageBox.Show("you got it");
         }
     }
 }

@@ -53,7 +53,7 @@
         <TextBox x:Name="taskDescriptionField" Grid.Column="4" Grid.Row="1" 
                  VerticalAlignment="Bottom" Height="100" 
                  Text="{Binding NewTask.Description, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button x:Name="save" Content="save" Grid.Column="3" Grid.Row="3"/>
-        <Button x:Name="load" Content="load" Grid.Column="4" Grid.Row="3"/>
+        <Image Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="120" 
+                 Source="/Images/Dylan.jpg"/>
     </Grid>
 </Window>   
