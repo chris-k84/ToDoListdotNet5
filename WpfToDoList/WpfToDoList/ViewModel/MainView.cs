@@ -52,7 +52,7 @@ namespace WpfToDoList
             RemoveTask = new Command(RemoveTaskMethod, canRemoveTask);
             string[] paths = new string[] { Environment.CurrentDirectory, "TaskListData" };
             dataFilePath = Path.Combine(paths);
-            PropertyChanged += TestEvent;
+            _newTask.PropertyChanged += TestEvent;
         }
 
         public void OnViewStart(Object source, EventArgs e)
