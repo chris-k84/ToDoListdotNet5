@@ -16,7 +16,7 @@ namespace WpfToDoList
             set
             {
                 _name = value;
-                OnPropertyChanged("Name");
+                //OnPropertyChanged("Name");
             }
         }
 
@@ -29,7 +29,7 @@ namespace WpfToDoList
             set
             {
                 _description = value;
-                OnPropertyChanged("Description");
+                //OnPropertyChanged("Description");
             }
         }
 
