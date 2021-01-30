@@ -52,7 +52,6 @@ namespace WpfToDoList
             RemoveTask = new Command(RemoveTaskMethod, canRemoveTask);
             string[] paths = new string[] { Environment.CurrentDirectory, "TaskListData" };
             dataFilePath = Path.Combine(paths);
-            //_newTask.PropertyChanged += TestEvent;
         }
 
         public void OnViewStart(Object source, EventArgs e)
@@ -76,8 +75,7 @@ namespace WpfToDoList
 
         private void AddTaskMethod(Object paramter)
         {
-            NewTask = new ToDoListItem { Name = _newTask.Name, Description = _newTask.Description };
-            TaskList.Add(NewTask);
+            TaskList.Add(new ToDoListItem { Name = _newTask.Name, Description = _newTask.Description });
         }
 
         private bool canAddTask(Object paramter)
@@ -111,11 +109,6 @@ namespace WpfToDoList
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
-        }
-
-        private void TestEvent(Object source, EventArgs e)
-        {
-            MessageBox.Show("you got it");
         }
     }
 }
