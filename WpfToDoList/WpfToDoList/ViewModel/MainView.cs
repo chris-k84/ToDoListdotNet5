@@ -8,7 +8,7 @@ using System.IO;
 
 namespace WpfToDoList
 {
-    public class MainView : INotifyPropertyChanged
+    public class MainView
     {
         private ToDoListItem _newTask = new ToDoListItem();
 
@@ -23,7 +23,6 @@ namespace WpfToDoList
             set
             {
                 _newTask = value;
-                OnPropertyChanged("NewTask");
             }
         }
 
@@ -38,7 +37,6 @@ namespace WpfToDoList
             set
             {
                 _taskList = value;
-                OnPropertyChanged("TaskList");
             }
         }
 
@@ -75,7 +73,7 @@ namespace WpfToDoList
 
         private void AddTaskMethod(Object paramter)
         {
-            TaskList.Add(new ToDoListItem { Name = _newTask.Name, Description = _newTask.Description });
+            TaskList.Add(new ToDoListItem { Name = NewTask.Name, Description = NewTask.Description });
         }
 
         private bool canAddTask(Object paramter)
@@ -99,16 +97,6 @@ namespace WpfToDoList
         private bool canRemoveTask(Object parameter)
         {
             return true;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
         }
     }
 }
