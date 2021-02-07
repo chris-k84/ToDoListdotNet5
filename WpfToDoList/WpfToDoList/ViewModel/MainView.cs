@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Windows;
-using System.ComponentModel;
 using System.Windows.Input;
 using System.Text.Json;
 using System.IO;

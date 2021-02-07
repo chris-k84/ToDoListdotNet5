@@ -54,6 +54,6 @@
                  VerticalAlignment="Bottom" Height="100" 
                  Text="{Binding NewTask.Description, UpdateSourceTrigger=PropertyChanged}"/>
         <Image Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="120" 
-                 Source="/Images/Dylan.jpg"/>
+                 Source="/Images/Dylan.jpg" Name="imageSpot"/>
     </Grid>
 </Window>   
