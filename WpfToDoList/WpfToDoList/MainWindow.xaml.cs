@@ -44,5 +44,10 @@ namespace WpfToDoList
             var uriSource = new Uri(comic.Img, UriKind.Absolute);
             imageSpot.Source = new BitmapImage(uriSource);
         }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadImage();
+        }
     }
 }
